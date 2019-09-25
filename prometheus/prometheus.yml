@@ -10,7 +10,7 @@ scrape_configs:
     # Override the global default and scrape targets from this job every 5 seconds.
     scrape_interval: 5s
     static_configs:
-         - targets: ['prom.local:9090']
+         - targets: ['prom.local']
 
   - job_name: 'node-exporter'
     # Override the global default and scrape targets from this job every 5 seconds.

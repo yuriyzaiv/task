@@ -59,7 +59,23 @@ services:
     networks:
       - proms
     restart: always
-
+  
+  node:
+    image: prom/node-exporter:latest
+    restart: always 
+    volumes: 
+      - /proc:/host/proc:ro
+      - /sys:/host/sys:ro
+      - /:/rootfs:ro
+    command:
+      - '--path.procfs=/host/proc'
+      - '--path.sysfs=/host/sys'
+      - '--collector.filesystem.ignored-mount-points=^/(sys|proc|dev|host|etc)($$|/)'
+    ports:
+      - 9100:9100
+    networks:
+      - proms
+ 
 networks:
   wp-proxy:
     driver: bridge
