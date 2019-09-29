@@ -60,7 +60,7 @@ services:
       - proms
     restart: always
   
-  node:
+  node-exporter:
     image: prom/node-exporter:latest
     restart: always 
     volumes: 
